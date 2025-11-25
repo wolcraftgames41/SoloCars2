@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoloCars - Comparador de Precios de Autos y Repuestos</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3202/3202926.png">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <i class="bi bi-car-front"></i> SoloCars
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html"><i class="bi bi-house"></i> Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html"><i class="bi bi-envelope"></i> Contacto</a></li>
+          <li class="nav-item">
+            <button class="btn btn-sm btn-outline-light ms-2" onclick="toggleDarkMode()" title="Cambiar tema" id="btn-dark-mode">
+              <i class="bi bi-moon-stars"></i> Dark
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header principal -->
+  <header class="main-header">
+    <img src="https://cdn-icons-png.flaticon.com/512/3202/3202926.png" width="80" class="mb-2" alt="SoloCars Logo">
+    <h1>SoloCars</h1>
+    <p class="lead">Comparador Inteligente de Precios de Autos y Repuestos</p>
+    <p class="subtitle">Encuentra las mejores ofertas en múltiples tiendas al instante</p>
+  </header>
+
+  <!-- Sección de Introducción -->
+  <section class="intro text-center py-5 bg-light">
+    <div class="container">
+      <h2><i class="bi bi-search"></i> ¿Cómo funciona SoloCars?</h2>
+      <div class="row mt-4 g-4">
+        <div class="col-md-4">
+          <div class="feature-box">
+            <div class="feature-icon"><i class="bi bi-1-circle-fill"></i></div>
+            <h5>Busca un Producto</h5>
+            <p>Ingresa el nombre del auto o repuesto que buscas</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-box">
+            <div class="feature-icon"><i class="bi bi-2-circle-fill"></i></div>
+            <h5>Compara Precios</h5>
+            <p>Ve todos los precios de diferentes tiendas</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-box">
+            <div class="feature-icon"><i class="bi bi-3-circle-fill"></i></div>
+            <h5>Ahorra Dinero</h5>
+            <p>Identifica la mejor oferta y el ahorro máximo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contenido Principal -->
+  <main class="container mt-5 pb-5">
+    
+    <!-- Caja de Búsqueda -->
+    <div class="search-box">
+      <h3 class="text-center mb-4"><i class="bi bi-search"></i> Buscar Producto</h3>
+      <div class="row g-3 justify-content-center">
+        <div class="col-md-5">
+          <div class="autocomplete-container">
+            <input 
+              id="busqueda" 
+              type="text" 
+              class="form-control form-control-lg" 
+              placeholder="Ej: Toyota Corolla, Pastillas de Freno..."
+              autocomplete="off"
+              list="sugerencias-lista"
+            >
+            <datalist id="sugerencias-lista"></datalist>
+          </div>
+          <small class="text-muted d-block mt-2">Escribe el nombre del producto que buscas</small>
+        </div>
+        <div class="col-md-3">
+          <select id="categoria" class="form-select form-select-lg">
+            <option value="todos">📋 Todas las categorías</option>
+            <option value="autos">🚗 Autos</option>
+            <option value="repuestos">🔧 Repuestos</option>
+          </select>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-primary btn-lg w-100" onclick="buscarProducto()">
+            <i class="bi bi-search"></i> Buscar
+          </button>
+        </div>
+      </div>
+
+      <!-- Historial de búsquedas -->
+      <div id="historial-container" class="mt-3">
+        <small class="text-muted">
+          <i class="bi bi-clock-history"></i> Búsquedas recientes:
+          <span id="historial-items"></span>
+        </small>
+      </div>
+    </div>
+
+    <!-- Información de Ayuda -->
+    <div class="alert alert-info mt-4" role="alert">
+      <i class="bi bi-info-circle"></i> <strong>Consejo:</strong> Prueba buscando "Toyota Corolla", "Pastillas de Freno", "Batería" o selecciona una categoría para ver todos los productos disponibles.
+    </div>
+
+    <!-- Filtros Avanzados -->
+    <div class="filtros-avanzados mt-4">
+      <h5><i class="bi bi-funnel"></i> Filtros</h5>
+      <div class="row g-2">
+        <div class="col-md-3">
+          <select id="ordenar-por" class="form-select form-select-sm" onchange="aplicarFiltros()">
+            <option value="relevancia">Ordenar por Relevancia</option>
+            <option value="mayor-ahorro">Mayor Ahorro</option>
+            <option value="menor-precio">Menor Precio</option>
+            <option value="mayor-precio">Mayor Precio</option>
+          </select>
+        </div>
+        <div class="col-md-3">
+          <button class="btn btn-sm btn-outline-secondary w-100" onclick="limpiarFiltros()">
+            <i class="bi bi-arrow-clockwise"></i> Limpiar Filtros
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de Resultados -->
+    <h3 class="mt-5 mb-4"><i class="bi bi-graph-up"></i> Comparación de Precios</h3>
+    
+    <div id="resultados" class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th><i class="bi bi-box"></i> Producto</th>
+            <th><i class="bi bi-building"></i> Tiendas y Precios</th>
+            <th><i class="bi bi-piggy-bank"></i> Ahorro Potencial</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-resultados">
+          <tr>
+            <td colspan="3" class="text-center text-muted py-5">
+              <i class="bi bi-search" style="font-size: 3rem; opacity: 0.5;"></i>
+              <p class="mt-3">Realiza una búsqueda para ver la comparación de precios</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Paginación -->
+    <nav id="paginacion-container" class="mt-4" style="display: none;">
+      <ul class="pagination justify-content-center" id="paginacion"></ul>
+    </nav>
+
+    <!-- Tendencias y Mejores Ofertas -->
+    <section class="tendencias mt-5">
+      <h3 class="mb-4"><i class="bi bi-fire"></i> Mejores Ofertas del Momento</h3>
+      <div class="row g-4" id="ofertas-container">
+        <!-- Se llena con JavaScript -->
+      </div>
+    </section>
+
+    <!-- Rating de Tiendas -->
+    <section class="tiendas-rating mt-5">
+      <h3 class="mb-4"><i class="bi bi-star"></i> Reputación de Tiendas</h3>
+      <div class="row g-3" id="tiendas-container">
+        <!-- Se llena con JavaScript -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-light py-5 mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <h5><i class="bi bi-car-front"></i> SoloCars</h5>
+          <p class="small text-secondary">Tu comparador de precios automotriz más inteligente. Encuentra los mejores precios en autos y repuestos.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Enlaces Rápidos</h5>
+          <ul class="list-unstyled small">
+            <li><a href="index.html" class="text-decoration-none text-secondary">Inicio</a></li>
+            <li><a href="contacto.html" class="text-decoration-none text-secondary">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Síguenos</h5>
+          <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" class="text-secondary me-3"><i class="bi bi-facebook"></i></a>
+            <a href="https://instagram.com" target="_blank" class="text-secondary me-3"><i class="bi bi-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank" class="text-secondary me-3"><i class="bi bi-twitter-x"></i></a>
+            <a href="https://www.youtube.com" target="_blank" class="text-secondary"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr class="bg-secondary my-4">
+      <div class="text-center small text-secondary">
+        <p>&copy; 2025 SoloCars | Proyecto Académico AIEP</p>
+        <p>Desarrollado por el equipo SoloCars | Versión 3.3 Con Dark Mode y Mejoras</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
