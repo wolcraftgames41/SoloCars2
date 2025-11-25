@@ -23,9 +23,9 @@ const ratingTiendas = {
   'AutoParts Store': { stars: 4.9, reviews: 1456 }
 };
 
-// Base de datos de productos (simulada)
+// ==================== BASE DE DATOS (AMPLIADA: IDs 1 - 155) ====================
 const productos = [
-  // AUTOS
+  // === (ORIGINALES 1-35) ===
   { id: 1, nombre: 'Toyota Corolla 2023', categoria: 'autos', precios: [
     { tienda: 'AutoMundo', precio: 18500000 },
     { tienda: 'MotorMax', precio: 18800000 },
@@ -131,7 +131,7 @@ const productos = [
     { tienda: 'VehículosPro', precio: 12900000 },
     { tienda: 'TiendaAuto', precio: 12700000 }
   ]},
-  // REPUESTOS
+  // REPUESTOS 
   { id: 16, nombre: 'Pastillas de Freno (Juego)', categoria: 'repuestos', precios: [
     { tienda: 'RepuestosCL', precio: 45000 },
     { tienda: 'AutoParts Store', precio: 42000 },
@@ -271,6 +271,610 @@ const productos = [
     { tienda: 'AutoParts Store', precio: 7500 },
     { tienda: 'TiendaAuto', precio: 9000 },
     { tienda: 'VehículosPro', precio: 8200 }
+  ]},
+
+  // === NUEVOS AUTOS (36-95) ===
+  { id: 36, nombre: 'Toyota Corolla 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 18600000 },
+    { tienda: 'MotorMax', precio: 18900000 },
+    { tienda: 'AutoPlus', precio: 18450000 },
+    { tienda: 'VehículosPro', precio: 18700000 }
+  ]},
+  { id: 37, nombre: 'Honda Civic 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 19500000 },
+    { tienda: 'MotorMax', precio: 19800000 },
+    { tienda: 'AutoPlus', precio: 19250000 },
+    { tienda: 'TiendaAuto', precio: 19400000 }
+  ]},
+  { id: 38, nombre: 'Hyundai Elantra 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 17650000 },
+    { tienda: 'MotorMax', precio: 17950000 },
+    { tienda: 'VehículosPro', precio: 17400000 },
+    { tienda: 'AutoPlus', precio: 17700000 }
+  ]},
+  { id: 39, nombre: 'Kia Forte 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 16950000 },
+    { tienda: 'MotorMax', precio: 17200000 },
+    { tienda: 'AutoPlus', precio: 16650000 },
+    { tienda: 'VehículosPro', precio: 16850000 }
+  ]},
+  { id: 40, nombre: 'Chevrolet Onix 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 15950000 },
+    { tienda: 'VehículosPro', precio: 16200000 },
+    { tienda: 'MotorMax', precio: 16100000 },
+    { tienda: 'AutoPlus', precio: 16000000 }
+  ]},
+  { id: 41, nombre: 'Nissan Versa 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 14650000 },
+    { tienda: 'MotorMax', precio: 14900000 },
+    { tienda: 'AutoPlus', precio: 14350000 },
+    { tienda: 'VehículosPro', precio: 14700000 }
+  ]},
+  { id: 42, nombre: 'Volkswagen Polo 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 17350000 },
+    { tienda: 'MotorMax', precio: 17600000 },
+    { tienda: 'AutoPlus', precio: 17050000 },
+    { tienda: 'VehículosPro', precio: 17400000 }
+  ]},
+  { id: 43, nombre: 'Mazda 3 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 19950000 },
+    { tienda: 'MotorMax', precio: 20250000 },
+    { tienda: 'AutoPlus', precio: 19600000 },
+    { tienda: 'TiendaAuto', precio: 19800000 }
+  ]},
+  { id: 44, nombre: 'Subaru Impreza 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 21650000 },
+    { tienda: 'MotorMax', precio: 21950000 },
+    { tienda: 'AutoPlus', precio: 21300000 },
+    { tienda: 'VehículosPro', precio: 21700000 }
+  ]},
+  { id: 45, nombre: 'Fiat Argo 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 13650000 },
+    { tienda: 'MotorMax', precio: 13900000 },
+    { tienda: 'AutoPlus', precio: 13350000 },
+    { tienda: 'TiendaAuto', precio: 13500000 }
+  ]},
+  { id: 46, nombre: 'Ford Focus 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 18350000 },
+    { tienda: 'MotorMax', precio: 18650000 },
+    { tienda: 'AutoPlus', precio: 18000000 },
+    { tienda: 'VehículosPro', precio: 18400000 }
+  ]},
+  { id: 47, nombre: 'Peugeot 208 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 16650000 },
+    { tienda: 'MotorMax', precio: 16950000 },
+    { tienda: 'AutoPlus', precio: 16300000 },
+    { tienda: 'TiendaAuto', precio: 16500000 }
+  ]},
+  { id: 48, nombre: 'Renault Sandero 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 15350000 },
+    { tienda: 'MotorMax', precio: 15600000 },
+    { tienda: 'AutoPlus', precio: 15050000 },
+    { tienda: 'VehículosPro', precio: 15250000 }
+  ]},
+  { id: 49, nombre: 'Suzuki Swift 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 14950000 },
+    { tienda: 'MotorMax', precio: 15250000 },
+    { tienda: 'AutoPlus', precio: 14800000 },
+    { tienda: 'TiendaAuto', precio: 14750000 }
+  ]},
+  { id: 50, nombre: 'BYD Qin 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 12950000 },
+    { tienda: 'MotorMax', precio: 13250000 },
+    { tienda: 'AutoPlus', precio: 12800000 },
+    { tienda: 'VehículosPro', precio: 13000000 }
+  ]},
+  { id: 51, nombre: 'Hyundai Tucson 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 22900000 },
+    { tienda: 'MotorMax', precio: 23200000 },
+    { tienda: 'AutoPlus', precio: 22800000 },
+    { tienda: 'VehículosPro', precio: 23050000 }
+  ]},
+  { id: 52, nombre: 'Kia Seltos 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 18050000 },
+    { tienda: 'MotorMax', precio: 18350000 },
+    { tienda: 'AutoPlus', precio: 17900000 },
+    { tienda: 'TiendaAuto', precio: 18100000 }
+  ]},
+  { id: 53, nombre: 'Toyota Yaris 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 14050000 },
+    { tienda: 'MotorMax', precio: 14300000 },
+    { tienda: 'AutoPlus', precio: 13900000 },
+    { tienda: 'VehículosPro', precio: 14100000 }
+  ]},
+  { id: 54, nombre: 'Nissan Kicks 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 19800000 },
+    { tienda: 'MotorMax', precio: 20100000 },
+    { tienda: 'AutoPlus', precio: 19550000 },
+    { tienda: 'TiendaAuto', precio: 19700000 }
+  ]},
+  { id: 55, nombre: 'Honda HR-V 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 20500000 },
+    { tienda: 'MotorMax', precio: 20800000 },
+    { tienda: 'AutoPlus', precio: 20200000 },
+    { tienda: 'VehículosPro', precio: 20450000 }
+  ]},
+  { id: 56, nombre: 'Mazda CX-3 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 21500000 },
+    { tienda: 'MotorMax', precio: 21800000 },
+    { tienda: 'AutoPlus', precio: 21200000 },
+    { tienda: 'TiendaAuto', precio: 21400000 }
+  ]},
+  { id: 57, nombre: 'Subaru XV 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 22500000 },
+    { tienda: 'MotorMax', precio: 22800000 },
+    { tienda: 'AutoPlus', precio: 22300000 },
+    { tienda: 'VehículosPro', precio: 22600000 }
+  ]},
+  { id: 58, nombre: 'Volkswagen T-Cross 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 20000000 },
+    { tienda: 'MotorMax', precio: 20300000 },
+    { tienda: 'AutoPlus', precio: 19850000 },
+    { tienda: 'TiendaAuto', precio: 19950000 }
+  ]},
+  { id: 59, nombre: 'Chevrolet Tracker 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 21000000 },
+    { tienda: 'MotorMax', precio: 21300000 },
+    { tienda: 'AutoPlus', precio: 20800000 },
+    { tienda: 'VehículosPro', precio: 20950000 }
+  ]},
+  { id: 60, nombre: 'Ford EcoSport 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 19500000 },
+    { tienda: 'MotorMax', precio: 19800000 },
+    { tienda: 'AutoPlus', precio: 19200000 },
+    { tienda: 'TiendaAuto', precio: 19350000 }
+  ]},
+  { id: 61, nombre: 'Renault Duster 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 18500000 },
+    { tienda: 'MotorMax', precio: 18800000 },
+    { tienda: 'AutoPlus', precio: 18300000 },
+    { tienda: 'VehículosPro', precio: 18450000 }
+  ]},
+  { id: 62, nombre: 'Peugeot 2008 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 19550000 },
+    { tienda: 'MotorMax', precio: 19850000 },
+    { tienda: 'AutoPlus', precio: 19400000 },
+    { tienda: 'TiendaAuto', precio: 19500000 }
+  ]},
+  { id: 63, nombre: 'Suzuki Baleno 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 13100000 },
+    { tienda: 'MotorMax', precio: 13350000 },
+    { tienda: 'AutoPlus', precio: 13000000 },
+    { tienda: 'VehículosPro', precio: 13150000 }
+  ]},
+  { id: 64, nombre: 'Toyota CH-R 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 22000000 },
+    { tienda: 'MotorMax', precio: 22300000 },
+    { tienda: 'AutoPlus', precio: 21800000 },
+    { tienda: 'TiendaAuto', precio: 21900000 }
+  ]},
+  { id: 65, nombre: 'Kia Rio 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 13350000 },
+    { tienda: 'MotorMax', precio: 13600000 },
+    { tienda: 'AutoPlus', precio: 13200000 },
+    { tienda: 'VehículosPro', precio: 13400000 }
+  ]},
+  { id: 66, nombre: 'Honda Fit 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 14250000 },
+    { tienda: 'MotorMax', precio: 14500000 },
+    { tienda: 'AutoPlus', precio: 14100000 },
+    { tienda: 'TiendaAuto', precio: 14200000 }
+  ]},
+  { id: 67, nombre: 'Mazda CX-30 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 21600000 },
+    { tienda: 'MotorMax', precio: 21900000 },
+    { tienda: 'AutoPlus', precio: 21500000 },
+    { tienda: 'VehículosPro', precio: 21700000 }
+  ]},
+  { id: 68, nombre: 'Nissan Sentra 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 17000000 },
+    { tienda: 'MotorMax', precio: 17300000 },
+    { tienda: 'AutoPlus', precio: 16850000 },
+    { tienda: 'TiendaAuto', precio: 16950000 }
+  ]},
+  { id: 69, nombre: 'Volkswagen Virtus 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 17800000 },
+    { tienda: 'MotorMax', precio: 18100000 },
+    { tienda: 'AutoPlus', precio: 17600000 },
+    { tienda: 'VehículosPro', precio: 17750000 }
+  ]},
+  { id: 70, nombre: 'Chevrolet Spark GT 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 12650000 },
+    { tienda: 'MotorMax', precio: 12900000 },
+    { tienda: 'AutoPlus', precio: 12500000 },
+    { tienda: 'TiendaAuto', precio: 12450000 }
+  ]},
+  { id: 71, nombre: 'Ford Ka 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 12000000 },
+    { tienda: 'MotorMax', precio: 12250000 },
+    { tienda: 'AutoPlus', precio: 11900000 },
+    { tienda: 'VehículosPro', precio: 12050000 }
+  ]},
+  { id: 72, nombre: 'Renault Logan 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 14750000 },
+    { tienda: 'MotorMax', precio: 15000000 },
+    { tienda: 'AutoPlus', precio: 14600000 },
+    { tienda: 'TiendaAuto', precio: 14700000 }
+  ]},
+  { id: 73, nombre: 'Peugeot 3008 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 24500000 },
+    { tienda: 'MotorMax', precio: 24800000 },
+    { tienda: 'AutoPlus', precio: 24300000 },
+    { tienda: 'VehículosPro', precio: 24450000 }
+  ]},
+  { id: 74, nombre: 'Suzuki Vitara 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 23000000 },
+    { tienda: 'MotorMax', precio: 23300000 },
+    { tienda: 'AutoPlus', precio: 22800000 },
+    { tienda: 'TiendaAuto', precio: 22950000 }
+  ]},
+  { id: 75, nombre: 'Toyota RAV4 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 25500000 },
+    { tienda: 'MotorMax', precio: 25800000 },
+    { tienda: 'AutoPlus', precio: 25200000 },
+    { tienda: 'VehículosPro', precio: 25450000 }
+  ]},
+  { id: 76, nombre: 'Nissan Qashqai 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 23500000 },
+    { tienda: 'MotorMax', precio: 23800000 },
+    { tienda: 'AutoPlus', precio: 23200000 },
+    { tienda: 'TiendaAuto', precio: 23350000 }
+  ]},
+  { id: 77, nombre: 'Volkswagen Golf 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 21000000 },
+    { tienda: 'MotorMax', precio: 21300000 },
+    { tienda: 'AutoPlus', precio: 20800000 },
+    { tienda: 'VehículosPro', precio: 20950000 }
+  ]},
+  { id: 78, nombre: 'Chevrolet Cruze 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 17200000 },
+    { tienda: 'MotorMax', precio: 17500000 },
+    { tienda: 'AutoPlus', precio: 17000000 },
+    { tienda: 'TiendaAuto', precio: 17150000 }
+  ]},
+  { id: 79, nombre: 'Ford Mustang 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 35000000 },
+    { tienda: 'MotorMax', precio: 35500000 },
+    { tienda: 'AutoPlus', precio: 34800000 },
+    { tienda: 'VehículosPro', precio: 34950000 }
+  ]},
+  { id: 80, nombre: 'Hyundai Santa Fe 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 27000000 },
+    { tienda: 'MotorMax', precio: 27300000 },
+    { tienda: 'AutoPlus', precio: 26800000 },
+    { tienda: 'TiendaAuto', precio: 26950000 }
+  ]},
+  { id: 81, nombre: 'Kia Sorento 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 28500000 },
+    { tienda: 'MotorMax', precio: 28800000 },
+    { tienda: 'AutoPlus', precio: 28300000 },
+    { tienda: 'VehículosPro', precio: 28450000 }
+  ]},
+  { id: 82, nombre: 'Mazda CX-5 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 24000000 },
+    { tienda: 'MotorMax', precio: 24300000 },
+    { tienda: 'AutoPlus', precio: 23800000 },
+    { tienda: 'TiendaAuto', precio: 23950000 }
+  ]},
+  { id: 83, nombre: 'Subaru Forester 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 26000000 },
+    { tienda: 'MotorMax', precio: 26300000 },
+    { tienda: 'AutoPlus', precio: 25800000 },
+    { tienda: 'VehículosPro', precio: 25950000 }
+  ]},
+  { id: 84, nombre: 'Volkswagen Tiguan 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 26500000 },
+    { tienda: 'MotorMax', precio: 26800000 },
+    { tienda: 'AutoPlus', precio: 26300000 },
+    { tienda: 'TiendaAuto', precio: 26450000 }
+  ]},
+  { id: 85, nombre: 'Chevrolet Captiva 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 22500000 },
+    { tienda: 'MotorMax', precio: 22800000 },
+    { tienda: 'AutoPlus', precio: 22300000 },
+    { tienda: 'VehículosPro', precio: 22450000 }
+  ]},
+  { id: 86, nombre: 'Ford Edge 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 28000000 },
+    { tienda: 'MotorMax', precio: 28300000 },
+    { tienda: 'AutoParts Store', precio: 27800000 },
+    { tienda: 'TiendaAuto', precio: 27950000 }
+  ]},
+  { id: 87, nombre: 'Toyota Hilux 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 29500000 },
+    { tienda: 'MotorMax', precio: 29800000 },
+    { tienda: 'AutoPlus', precio: 29300000 },
+    { tienda: 'VehículosPro', precio: 29450000 }
+  ]},
+  { id: 88, nombre: 'Nissan Navara 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 30000000 },
+    { tienda: 'MotorMax', precio: 30300000 },
+    { tienda: 'AutoPlus', precio: 29800000 },
+    { tienda: 'TiendaAuto', precio: 29950000 }
+  ]},
+  { id: 89, nombre: 'Volkswagen Amarok 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 31000000 },
+    { tienda: 'MotorMax', precio: 31300000 },
+    { tienda: 'AutoPlus', precio: 30800000 },
+    { tienda: 'VehículosPro', precio: 30950000 }
+  ]},
+  { id: 90, nombre: 'Chevrolet Colorado 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 29500000 },
+    { tienda: 'MotorMax', precio: 29800000 },
+    { tienda: 'AutoPlus', precio: 29300000 },
+    { tienda: 'TiendaAuto', precio: 29450000 }
+  ]},
+  { id: 91, nombre: 'Ford Ranger 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 30500000 },
+    { tienda: 'MotorMax', precio: 30800000 },
+    { tienda: 'AutoPlus', precio: 30300000 },
+    { tienda: 'VehículosPro', precio: 30450000 }
+  ]},
+  { id: 92, nombre: 'Jeep Compass 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 27000000 },
+    { tienda: 'MotorMax', precio: 27300000 },
+    { tienda: 'AutoPlus', precio: 26800000 },
+    { tienda: 'TiendaAuto', precio: 26950000 }
+  ]},
+  { id: 93, nombre: 'Renault Koleos 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 26000000 },
+    { tienda: 'MotorMax', precio: 26300000 },
+    { tienda: 'AutoPlus', precio: 25800000 },
+    { tienda: 'VehículosPro', precio: 25950000 }
+  ]},
+  { id: 94, nombre: 'Peugeot 5008 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 28000000 },
+    { tienda: 'MotorMax', precio: 28300000 },
+    { tienda: 'AutoPlus', precio: 27800000 },
+    { tienda: 'TiendaAuto', precio: 27950000 }
+  ]},
+  { id: 95, nombre: 'Toyota Corolla Cross 2024', categoria: 'autos', precios: [
+    { tienda: 'AutoMundo', precio: 21500000 },
+    { tienda: 'MotorMax', precio: 21800000 },
+    { tienda: 'AutoPlus', precio: 21300000 },
+    { tienda: 'VehículosPro', precio: 21450000 }
+  ]},
+
+  // === NUEVOS REPUESTOS (96-155) ===
+  { id: 96, nombre: 'Filtro de Aire Universal', categoria: 'repuestos', precios: [
+    { tienda: 'RepuestosCL', precio: 15000 },
+    { tienda: 'AutoParts Store', precio: 14000 }
+  ]},
+  { id: 97, nombre: 'Aceite 10W40 (4L)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 23000 },
+    { tienda: 'VehículosPro', precio: 22500 }
+  ]},
+  { id: 98, nombre: 'Batería 55Ah Libre Mantención', categoria: 'repuestos', precios: [
+    { tienda: 'AutoParts Store', precio: 95000 },
+    { tienda: 'RepuestosCL', precio: 92000 }
+  ]},
+  { id: 99, nombre: 'Pastillas de Freno Delanteras', categoria: 'repuestos', precios: [
+    { tienda: 'TiendaAuto', precio: 47000 },
+    { tienda: 'AutoMundo', precio: 50000 }
+  ]},
+  { id: 100, nombre: 'Pastillas de Freno Traseras', categoria: 'repuestos', precios: [
+    { tienda: 'AutoParts Store', precio: 39000 },
+    { tienda: 'RepuestosCL', precio: 38000 }
+  ]},
+  { id: 101, nombre: 'Discos de Freno (Par)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 75000 },
+    { tienda: 'VehículosPro', precio: 71000 }
+  ]},
+  { id: 102, nombre: 'Aceite Sintético 5W20 (5L)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoParts Store', precio: 28000 },
+    { tienda: 'TiendaAuto', precio: 26500 }
+  ]},
+  { id: 103, nombre: 'Filtro de Cabina', categoria: 'repuestos', precios: [
+    { tienda: 'RepuestosCL', precio: 18000 },
+    { tienda: 'AutoMundo', precio: 18500 }
+  ]},
+  { id: 104, nombre: 'Amortiguador Delantero Izq.', categoria: 'repuestos', precios: [
+    { tienda: 'VehículosPro', precio: 46000 },
+    { tienda: 'TiendaAuto', precio: 45500 }
+  ]},
+  { id: 105, nombre: 'Amortiguador Delantero Der.', categoria: 'repuestos', precios: [
+    { tienda: 'VehículosPro', precio: 46000 },
+    { tienda: 'AutoParts Store', precio: 47000 }
+  ]},
+  { id: 106, nombre: 'Amortiguador Trasero (Par)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 85000 },
+    { tienda: 'RepuestosCL', precio: 83000 }
+  ]},
+  { id: 107, nombre: 'Correa de Distribución', categoria: 'repuestos', precios: [
+    { tienda: 'AutoParts Store', precio: 88000 },
+    { tienda: 'TiendaAuto', precio: 86000 }
+  ]},
+  { id: 108, nombre: 'Bujías (Juego 4)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 32000 },
+    { tienda: 'RepuestosCL', precio: 30000 }
+  ]},
+  { id: 109, nombre: 'Cable de Bujía (Juego)', categoria: 'repuestos', precios: [
+    { tienda: 'VehículosPro', precio: 28000 },
+    { tienda: 'AutoParts Store', precio: 25000 }
+  ]},
+  { id: 110, nombre: 'Bomba de Agua', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 57000 },
+    { tienda: 'TiendaAuto', precio: 55000 }
+  ]},
+  { id: 111, nombre: 'Radiador Completo', categoria: 'repuestos', precios: [
+    { tienda: 'RepuestosCL', precio: 82000 },
+    { tienda: 'AutoPlus', precio: 79000 }
+  ]},
+  { id: 112, nombre: 'Alternador 12V', categoria: 'repuestos', precios: [
+    { tienda: 'AutoParts Store', precio: 142000 },
+    { tienda: 'VehículosPro', precio: 139000 }
+  ]},
+  { id: 113, nombre: 'Correa Serpentina', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 43000 },
+    { tienda: 'RepuestosCL', precio: 41000 }
+  ]},
+  { id: 114, nombre: 'Juego de Pastillas & Discos', categoria: 'repuestos', precios: [
+    { tienda: 'AutoPlus', precio: 98000 },
+    { tienda: 'TiendaAuto', precio: 95000 }
+  ]},
+  { id: 115, nombre: 'Sensor de Oxígeno', categoria: 'repuestos', precios: [
+    { tienda: 'RepuestosCL', precio: 62000 },
+    { tienda: 'AutoParts Store', precio: 61000 }
+  ]},
+  { id: 116, nombre: 'Filtro de Aceite', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 12000 },
+    { tienda: 'VehículosPro', precio: 11800 }
+  ]},
+  { id: 117, nombre: 'Juego de Inyectores', categoria: 'repuestos', precios: [
+    { tienda: 'AutoPlus', precio: 152000 },
+    { tienda: 'TiendaAuto', precio: 150000 }
+  ]},
+  { id: 118, nombre: 'Kit de Afinamiento Completo', categoria: 'repuestos', precios: [
+    { tienda: 'AutoParts Store', precio: 90000 },
+    { tienda: 'RepuestosCL', precio: 88000 }
+  ]},
+  { id: 119, nombre: 'Faros Halógeno (Juego)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 60000 },
+    { tienda: 'AutoPlus', precio: 58000 }
+  ]},
+  { id: 120, nombre: 'Faros LED (Juego)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoParts Store', precio: 95000 },
+    { tienda: 'VehículosPro', precio: 93000 }
+  ]},
+  { id: 121, nombre: 'Llantas 15\" (Juego x4)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 220000 },
+    { tienda: 'TiendaAuto', precio: 210000 }
+  ]},
+  { id: 122, nombre: 'Llantas 16\" (Juego x4)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoParts Store', precio: 245000 },
+    { tienda: 'RepuestosCL', precio: 235000 }
+  ]},
+  { id: 123, nombre: 'Bomba de Combustible', categoria: 'repuestos', precios: [
+    { tienda: 'AutoPlus', precio: 78000 },
+    { tienda: 'VehículosPro', precio: 76000 }
+  ]},
+  { id: 124, nombre: 'Radiador de Aire Acondicionado', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 95000 },
+    { tienda: 'AutoParts Store', precio: 92000 }
+  ]},
+  { id: 125, nombre: 'Compresor A/A', categoria: 'repuestos', precios: [
+    { tienda: 'VehículosPro', precio: 185000 },
+    { tienda: 'AutoPlus', precio: 182000 }
+  ]},
+  { id: 126, nombre: 'Amortiguador Trasero Izq.', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 90000 },
+    { tienda: 'RepuestosCL', precio: 88000 }
+  ]},
+  { id: 127, nombre: 'Amortiguador Trasero Der.', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 90000 },
+    { tienda: 'AutoParts Store', precio: 92000 }
+  ]},
+  { id: 128, nombre: 'Espejo Lateral Izq.', categoria: 'repuestos', precios: [
+    { tienda: 'TiendaAuto', precio: 24000 },
+    { tienda: 'AutoPlus', precio: 23000 }
+  ]},
+  { id: 129, nombre: 'Espejo Lateral Der.', categoria: 'repuestos', precios: [
+    { tienda: 'TiendaAuto', precio: 24000 },
+    { tienda: 'RepuestosCL', precio: 23500 }
+  ]},
+  { id: 130, nombre: 'Manillas de Puerta (Juego 4)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoParts Store', precio: 18000 },
+    { tienda: 'AutoMundo', precio: 17500 }
+  ]},
+  { id: 131, nombre: 'Interruptor Ventana Eléctrica', categoria: 'repuestos', precios: [
+    { tienda: 'AutoPlus', precio: 15000 },
+    { tienda: 'VehículosPro', precio: 14500 }
+  ]},
+  { id: 132, nombre: 'Sensor de Presión de Neumáticos', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 35000 },
+    { tienda: 'AutoParts Store', precio: 34000 }
+  ]},
+  { id: 133, nombre: 'Bomba de Agua Eléctrica', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 65000 },
+    { tienda: 'RepuestosCL', precio: 63000 }
+  ]},
+  { id: 134, nombre: 'Termostato Motor', categoria: 'repuestos', precios: [
+    { tienda: 'AutoPlus', precio: 22000 },
+    { tienda: 'TiendaAuto', precio: 21000 }
+  ]},
+  { id: 135, nombre: 'Correa de Distribución Premium', categoria: 'repuestos', precios: [
+    { tienda: 'AutoParts Store', precio: 92000 },
+    { tienda: 'VehículosPro', precio: 90000 }
+  ]},
+  { id: 136, nombre: 'Bujías Iridio (Juego 4)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 42000 },
+    { tienda: 'AutoParts Store', precio: 40000 }
+  ]},
+  { id: 137, nombre: 'Filtro de Cabina Carbono', categoria: 'repuestos', precios: [
+    { tienda: 'RepuestosCL', precio: 21000 },
+    { tienda: 'AutoPlus', precio: 20000 }
+  ]},
+  { id: 138, nombre: 'Bombín de Freno Delantero', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 34000 },
+    { tienda: 'TiendaAuto', precio: 33000 }
+  ]},
+  { id: 139, nombre: 'Bombín de Freno Trasero', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 33000 },
+    { tienda: 'AutoParts Store', precio: 32000 }
+  ]},
+  { id: 140, nombre: 'Kit de Correas (Alternador + Aire)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoParts Store', precio: 56000 },
+    { tienda: 'VehículosPro', precio: 54000 }
+  ]},
+  { id: 141, nombre: 'Líquido de Frenos 1L', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 9500 },
+    { tienda: 'RepuestosCL', precio: 9000 }
+  ]},
+  { id: 142, nombre: 'Líquido de Dirección Hidráulica 1L', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 13500 },
+    { tienda: 'AutoParts Store', precio: 13000 }
+  ]},
+  { id: 143, nombre: 'Amortiguador De Techo (Monovolume)', categoria: 'repuestos', precios: [
+    { tienda: 'TiendaAuto', precio: 76000 },
+    { tienda: 'RepuestosCL', precio: 74500 }
+  ]},
+  { id: 144, nombre: 'Bomba de Freno Trasera', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 41000 },
+    { tienda: 'AutoParts Store', precio: 40000 }
+  ]},
+  { id: 145, nombre: 'Porta-placa Trasero', categoria: 'repuestos', precios: [
+    { tienda: 'AutoPlus', precio: 15000 },
+    { tienda: 'TiendaAuto', precio: 14500 }
+  ]},
+  { id: 146, nombre: 'Luz de Stop Trasera (Par)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoParts Store', precio: 22000 },
+    { tienda: 'RepuestosCL', precio: 21000 }
+  ]},
+  { id: 147, nombre: 'Luz de Giro Delantera (Par)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 18000 },
+    { tienda: 'TiendaAuto', precio: 17000 }
+  ]},
+  { id: 148, nombre: 'Limpiaparabrisas Delanteros', categoria: 'repuestos', precios: [
+    { tienda: 'AutoPlus', precio: 26000 },
+    { tienda: 'RepuestosCL', precio: 25500 }
+  ]},
+  { id: 149, nombre: 'Tapiz Interior Completo', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 150000 },
+    { tienda: 'VehículosPro', precio: 145000 }
+  ]},
+  { id: 150, nombre: 'Alfombras Universales (Juego 4)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoParts Store', precio: 35000 },
+    { tienda: 'TiendaAuto', precio: 34000 }
+  ]},
+  { id: 151, nombre: 'Cinturones de Seguridad (Juego 5)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoPlus', precio: 48000 },
+    { tienda: 'RepuestosCL', precio: 46000 }
+  ]},
+  { id: 152, nombre: 'Kit de Embrague Completo', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 99000 },
+    { tienda: 'AutoParts Store', precio: 96500 }
+  ]},
+  { id: 153, nombre: 'Radiador de Aceite', categoria: 'repuestos', precios: [
+    { tienda: 'VehículosPro', precio: 67000 },
+    { tienda: 'AutoPlus', precio: 65000 }
+  ]},
+  { id: 154, nombre: 'Filtro de Combustible', categoria: 'repuestos', precios: [
+    { tienda: 'AutoMundo', precio: 12000 },
+    { tienda: 'RepuestosCL', precio: 11500 }
+  ]},
+  { id: 155, nombre: 'Bomba de Vacío (Dirección)', categoria: 'repuestos', precios: [
+    { tienda: 'AutoParts Store', precio: 88000 },
+    { tienda: 'TiendaAuto', precio: 86000 }
   ]}
 ];
 
@@ -287,15 +891,15 @@ function actualizarBotonDarkMode() {
   
   const isDarkMode = document.body.classList.contains('dark-mode');
   
-  if (isDarkMode) {
+ if (isDarkMode) {
     btnDarkMode.innerHTML = '<i class="bi bi-sun-fill"></i> Light';
     btnDarkMode.classList.remove('btn-outline-light');
     btnDarkMode.classList.add('btn-warning');
-  } else {
+} else {
     btnDarkMode.innerHTML = '<i class="bi bi-moon-stars"></i> Dark';
     btnDarkMode.classList.remove('btn-warning');
     btnDarkMode.classList.add('btn-outline-light');
-  }
+}
 }
 
 function cargarPreferenciaDarkMode() {
@@ -305,6 +909,7 @@ function cargarPreferenciaDarkMode() {
   }
   actualizarBotonDarkMode();
 }
+
 
 // ==================== ALMACENAMIENTO LOCAL ====================
 function guardarLocalStorage(clave, valor) {
@@ -451,6 +1056,11 @@ function buscarProducto() {
     return;
   }
 
+  // ========== MEJORA 1: Eliminar duplicados por ID ==========
+  resultados = resultados.filter(
+    (prod, index, self) => index === self.findIndex(p => p.id === prod.id)
+  );
+
   resultados = resultados.map(producto => {
     const precios = producto.precios.map(p => p.precio);
     const precioMinimo = Math.min(...precios);
@@ -473,6 +1083,7 @@ function buscarProducto() {
   mostrarEstadisticas(resultados);
 }
 
+// ==================== FILTROS ====================
 function aplicarFiltros() {
   const ordenarPor = document.getElementById('ordenar-por');
   if (!ordenarPor) return;
@@ -495,7 +1106,11 @@ function aplicarFiltros() {
   }
 
   mostrarResultados(resultados);
+  
 }
+
+
+
 
 function limpiarFiltros() {
   const ordenarPor = document.getElementById('ordenar-por');
@@ -528,7 +1143,7 @@ function mostrarResultados(resultados) {
       <td colspan="3" class="p-0">
         <div class="producto-header">
           <div class="producto-info">
-            <button class="btn-expandir" onclick="toggleDetalles('${filId}')" type="button">
+            <button class="btn-expandir" onclick="toggleDetalles('${filId}', this)" type="button">
               <i class="bi bi-chevron-down"></i>
             </button>
             <div>
@@ -548,12 +1163,12 @@ function mostrarResultados(resultados) {
           <div class="comparativa-precios">
             ${preciosOrdenados.map((p, idx) => {
               const diferencia = p.precio - producto.precioMinimo;
-              const esOrdenador = idx === 0 ? 'mejor-precio' : '';
+              const mejorPrecioClase = idx === 0 ? 'mejor-precio-destacado' : '';
               return `
-                <div class="precio-item ${esOrdenador}">
+                <div class="precio-item ${mejorPrecioClase}">
                   <div class="tienda-nombre">${p.tienda}</div>
                   <div class="tienda-precio">${formatearPrecio(p.precio)}</div>
-                  ${idx === 0 ? '<div class="badge-mejor">✓ MEJOR PRECIO</div>' : `<div class="diferencia-precio">+${formatearPrecio(diferencia)}</div>`}
+                  ${idx === 0 ? '<div class="badge-mejor">✓ MEJOR PRECIO</div>' : `<div class="diferencia-precio">${formatearPrecio(diferencia)} más caro</div>`}
                 </div>
               `;
             }).join('')}
@@ -626,11 +1241,11 @@ function cambiarPagina(pagina) {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-function toggleDetalles(id) {
+function toggleDetalles(id, botonElem) {
   const elemento = document.getElementById(id);
   if (!elemento) return;
   
-  const boton = event?.target?.closest('.btn-expandir');
+  const boton = botonElem || document.querySelector(`[onclick*="${id}"]`);
   if (!boton) return;
 
   const estaExpandido = elemento.style.display !== 'none';
@@ -712,8 +1327,8 @@ function mostrarResumenBusqueda(resultados, categoria) {
       <div class="resumen-item">
         <i class="bi bi-award"></i>
         <div>
-          <strong>${productoMayorAhorro.nombre.substring(0, 20)}...</strong>
-          <span>Mayor ahorro: ${formatearPrecio(productoMayorAhorro.ahorroTotal)}</span>
+          <strong>${productoMayorAhorro ? productoMayorAhorro.nombre.substring(0, 20) + '...' : '—'}</strong>
+          <span>Mayor ahorro: ${productoMayorAhorro ? formatearPrecio(productoMayorAhorro.ahorroTotal) : '—'}</span>
         </div>
       </div>
     </div>
@@ -849,7 +1464,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const selectCategoria = document.getElementById('categoria');
 
   cargarHistorial();
-  cargarPreferenciaDarkMode();
+  // corregir la llamada a toggle dark mode label (evita posible error si icono cambió)
+  try { actualizarBotonDarkMode(); } catch(e) {}
 
   if (inputBusqueda) {
     inputBusqueda.addEventListener('keypress', function(event) {
@@ -872,5 +1488,42 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   actualizarHistorial();
-  console.log('🚗 SoloCars v4.0 - Iniciado correctamente con mejoras de rendimiento y accesibilidad');
+  console.log('🚗 SoloCars v4.0 - Script cargado con PASO 2 y PASO 3 integrados');
 });
+
+
+// ==================== ANUNCIOS ROTATIVOS ====================
+
+const anuncios = [
+  "🔥 AutoMundo - Descuentos hasta 30% esta semana",
+  "🔧 RepuestosCL - Envíos gratis sobre $50.000",
+  "💥 MotorMax - Ofertas especiales en baterías y frenos",
+  "🚗 AutoPlus - Nuevos modelos 2025 en promoción",
+  "🏁 VehículosPro - Los mejores precios del mercado",
+  "🛠️ AutoParts Store - Repuestos garantizados"
+  
+];
+
+let anuncioIndex = 0;
+
+function rotarAnuncios() {
+  const contenedor = document.getElementById("anuncio-rotativo");
+  if (!contenedor) return;
+
+  contenedor.style.opacity = "0";
+  
+  setTimeout(() => {
+    contenedor.textContent = anuncios[anuncioIndex];
+    contenedor.style.opacity = "1";
+    anuncioIndex = (anuncioIndex + 1) % anuncios.length;
+  }, 400);
+}
+
+// Rotar cada 4 segundos
+setInterval(rotarAnuncios, 4000);
+
+// Mostrar primer anuncio al inicio
+document.addEventListener("DOMContentLoaded", rotarAnuncios);
+
+
+

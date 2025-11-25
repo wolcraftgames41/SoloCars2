@@ -46,16 +46,17 @@
         <div class="col-md-6">
 
           <!-- Formspree Form -->
-          <form id="form-contacto" action="https://formspree.io/f/tu-endpoint" method="POST">
+          <form id="form-contacto" action="https://formspree.io/f/xdkrlenk" method="POST">
             <div class="mb-3">
               <label for="nombre" class="form-label">Nombre Completo *</label>
               <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Tu nombre completo" required minlength="3">
-              <small class="text-danger" id="error-nombre"></small>
+              <small class="text-danger d-none" id="error-nombre"></small>
             </div>
+            
             <div class="mb-3">
               <label for="email" class="form-label">Correo electrónico *</label>
               <input type="email" name="email" id="email" class="form-control" placeholder="tu.email@ejemplo.com" required>
-              <small class="text-danger" id="error-email"></small>
+              <small class="text-danger d-none" id="error-email"></small>
             </div>
 
             <div class="mb-3">
@@ -67,12 +68,16 @@
                 <option value="sugerencia">Sugerencia</option>
                 <option value="otro">Otro</option>
               </select>
+              <small class="text-danger d-none" id="error-asunto"></small>
             </div>
 
             <div class="mb-3">
               <label for="mensaje" class="form-label">Mensaje *</label>
-              <textarea name="mensaje" id="mensaje" class="form-control" rows="4" placeholder="Cuéntanos qué te trae por aquí..." required minlength="10"></textarea>
-              <small class="text-muted">Mínimo 10 caracteres</small>
+              <textarea name="mensaje" id="mensaje" class="form-control" rows="5" placeholder="Cuéntanos qué te trae por aquí..." required minlength="10"></textarea>
+              <small class="text-muted d-block mt-1">
+                <span id="contador-caracteres">0</span> / 500 caracteres (mínimo 10)
+              </small>
+              <small class="text-danger d-none" id="error-mensaje"></small>
             </div>
             
             <button type="submit" class="btn btn-primary w-100 shadow-sm" id="btn-submit">
@@ -84,10 +89,35 @@
               <i class="bi bi-check-circle"></i> ¡Mensaje enviado correctamente! Te responderemos pronto.
             </div>
             <div id="msg-error" class="alert alert-danger mt-3 d-none" role="alert">
-              <i class="bi bi-x-circle"></i> Ocurrió un error. Intenta nuevamente.
+              <i class="bi bi-x-circle"></i> <span id="texto-error">Ocurrió un error. Intenta nuevamente.</span>
             </div>
           </form>
 
+        </div>
+      </div>
+
+      <!-- Información adicional -->
+      <div class="row mt-5">
+        <div class="col-md-4 text-center mb-4">
+          <div class="info-card">
+            <i class="bi bi-envelope-fill info-icon"></i>
+            <h5>Email</h5>
+            <p class="text-muted">contacto@solocars.cl</p>
+          </div>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+          <div class="info-card">
+            <i class="bi bi-clock-fill info-icon"></i>
+            <h5>Horario</h5>
+            <p class="text-muted">Lun - Vie: 9:00 - 18:00</p>
+          </div>
+        </div>
+        <div class="col-md-4 text-center mb-4">
+          <div class="info-card">
+            <i class="bi bi-phone-fill info-icon"></i>
+            <h5>Teléfono</h5>
+            <p class="text-muted">+56 9 1234 5678</p>
+          </div>
         </div>
       </div>
     </div>
@@ -121,7 +151,7 @@
       <hr class="bg-secondary my-4">
       <div class="text-center small text-secondary">
         <p>&copy; 2025 SoloCars | Proyecto Académico AIEP</p>
-        <p>Desarrollado por el equipo SoloCars | Versión 3.2 Con Dark Mode</p>
+        <p>Desarrollado por el equipo SoloCars | Versión 3.3 - Bug Fixed</p>
       </div>
     </div>
   </footer>
@@ -140,6 +170,8 @@
 
     function actualizarBotonDarkMode() {
       const btnDarkMode = document.getElementById('btn-dark-mode');
+      if (!btnDarkMode) return;
+      
       const isDarkMode = document.body.classList.contains('dark-mode');
       
       if (isDarkMode) {
@@ -167,72 +199,253 @@
       return regex.test(email);
     }
 
+    function mostrarError(campo, mensaje) {
+      const errorElement = document.getElementById(`error-${campo}`);
+      if (errorElement) {
+        errorElement.textContent = mensaje;
+        errorElement.classList.remove('d-none');
+      }
+    }
+
+    function ocultarError(campo) {
+      const errorElement = document.getElementById(`error-${campo}`);
+      if (errorElement) {
+        errorElement.textContent = '';
+        errorElement.classList.add('d-none');
+      }
+    }
+
+    function ocultarTodosErrores() {
+      ['nombre', 'email', 'asunto', 'mensaje'].forEach(ocultarError);
+    }
+
+    // ==================== CONTADOR DE CARACTERES ====================
+    const mensajeTextarea = document.getElementById('mensaje');
+    const contadorCaracteres = document.getElementById('contador-caracteres');
+
+    if (mensajeTextarea && contadorCaracteres) {
+      mensajeTextarea.addEventListener('input', function() {
+        const longitud = this.value.length;
+        contadorCaracteres.textContent = longitud;
+        
+        if (longitud < 10) {
+          contadorCaracteres.classList.add('text-danger');
+          contadorCaracteres.classList.remove('text-success');
+        } else {
+          contadorCaracteres.classList.add('text-success');
+          contadorCaracteres.classList.remove('text-danger');
+        }
+      });
+    }
+
+    // ==================== PREVENCIÓN DE DOBLE ENVÍO ====================
+    let formularioEnviando = false;
+    const tiempoEsperaSegundos = 10;
+    let tiempoUltimoEnvio = 0;
+
+    // ==================== ENVÍO DEL FORMULARIO ====================
     const form = document.getElementById('form-contacto');
     const msgExito = document.getElementById('msg-exito');
     const msgError = document.getElementById('msg-error');
+    const textoError = document.getElementById('texto-error');
+    const btnSubmit = document.getElementById('btn-submit');
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      msgExito.classList.add('d-none');
-      msgError.classList.add('d-none');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Ocultar mensajes previos
+        msgExito.classList.add('d-none');
+        msgError.classList.add('d-none');
+        ocultarTodosErrores();
 
-      const nombre = document.getElementById('nombre').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const mensaje = document.getElementById('mensaje').value.trim();
-      const btnSubmit = document.getElementById('btn-submit');
+        // Prevenir doble envío
+        if (formularioEnviando) {
+          textoError.innerHTML = 'Ya se está enviando un mensaje. Por favor espera.';
+          msgError.classList.remove('d-none');
+          return;
+        }
 
-      // Validaciones
-      if (nombre.length < 3) {
-        document.getElementById('error-nombre').textContent = 'Mínimo 3 caracteres';
-        return;
-      } else {
-        document.getElementById('error-nombre').textContent = '';
-      }
+        // Rate limiting (10 segundos entre envíos)
+        const tiempoActual = Date.now();
+        const tiempoTranscurrido = (tiempoActual - tiempoUltimoEnvio) / 1000;
+        
+        if (tiempoTranscurrido < tiempoEsperaSegundos && tiempoUltimoEnvio > 0) {
+          const segundosRestantes = Math.ceil(tiempoEsperaSegundos - tiempoTranscurrido);
+          textoError.innerHTML = `Por favor espera ${segundosRestantes} segundos antes de enviar otro mensaje.`;
+          msgError.classList.remove('d-none');
+          return;
+        }
 
-      if (!validarEmail(email)) {
-        document.getElementById('error-email').textContent = 'Email inválido';
-        return;
-      } else {
-        document.getElementById('error-email').textContent = '';
-      }
+        // Obtener valores
+        const nombre = document.getElementById('nombre').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const asunto = document.getElementById('asunto').value;
+        const mensaje = document.getElementById('mensaje').value.trim();
 
-      if (mensaje.length < 10) {
-        msgError.classList.remove('d-none');
-        msgError.textContent = '<i class="bi bi-x-circle"></i> El mensaje debe tener al menos 10 caracteres';
-        return;
-      }
+        // Validaciones
+        let hayErrores = false;
 
-      // Mostrar cargando
-      btnSubmit.disabled = true;
-      btnSubmit.innerHTML = '<i class="bi bi-hourglass"></i> Enviando...';
+        if (nombre.length < 3) {
+          mostrarError('nombre', 'El nombre debe tener al menos 3 caracteres');
+          hayErrores = true;
+        }
 
-      const data = new FormData(form);
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
+        if (!validarEmail(email)) {
+          mostrarError('email', 'Por favor ingresa un email válido');
+          hayErrores = true;
+        }
+
+        if (!asunto) {
+          mostrarError('asunto', 'Por favor selecciona un asunto');
+          hayErrores = true;
+        }
+
+        if (mensaje.length < 10) {
+          mostrarError('mensaje', 'El mensaje debe tener al menos 10 caracteres');
+          hayErrores = true;
+        }
+
+        if (mensaje.length > 500) {
+          mostrarError('mensaje', 'El mensaje no puede exceder 500 caracteres');
+          hayErrores = true;
+        }
+
+        if (hayErrores) {
+          textoError.innerHTML = 'Por favor corrige los errores antes de enviar';
+          msgError.classList.remove('d-none');
+          return;
+        }
+
+        // Mostrar estado de carga
+        formularioEnviando = true;
+        btnSubmit.disabled = true;
+        btnSubmit.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Enviando...';
+
+        try {
+          const data = new FormData(form);
+          const response = await fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (response.ok) {
+            // Éxito
+            form.reset();
+            contadorCaracteres.textContent = '0';
+            contadorCaracteres.classList.remove('text-success', 'text-danger');
+            msgExito.classList.remove('d-none');
+            tiempoUltimoEnvio = Date.now();
+            
+            // Scroll suave al mensaje de éxito
+            msgExito.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Ocultar mensaje después de 8 segundos
+            setTimeout(() => {
+              msgExito.classList.add('d-none');
+            }, 8000);
+            
+          } else {
+            // Error del servidor
+            const errorData = await response.json();
+            textoError.innerHTML = errorData.error || 'Ocurrió un error al enviar el mensaje. Por favor intenta nuevamente.';
+            msgError.classList.remove('d-none');
+          }
+        } catch (error) {
+          // Error de red o JavaScript
+          console.error('Error al enviar formulario:', error);
+          textoError.innerHTML = 'Error de conexión. Verifica tu internet e intenta nuevamente.';
+          msgError.classList.remove('d-none');
+        } finally {
+          // Restaurar botón
+          formularioEnviando = false;
+          btnSubmit.disabled = false;
+          btnSubmit.innerHTML = '<i class="bi bi-send"></i> Enviar mensaje';
+        }
       });
+    }
 
-      if (response.ok) {
-        form.reset();
-        msgExito.classList.remove('d-none');
-        document.getElementById('error-nombre').textContent = '';
-        document.getElementById('error-email').textContent = '';
-      } else {
-        msgError.classList.remove('d-none');
-      }
-
-      // Restaurar botón
-      btnSubmit.disabled = false;
-      btnSubmit.innerHTML = '<i class="bi bi-send"></i> Enviar mensaje';
-    });
-
-    // Cargar dark mode al iniciar
+    // ==================== INICIALIZACIÓN ====================
     document.addEventListener('DOMContentLoaded', function() {
       cargarPreferenciaDarkMode();
-      console.log('🚗 SoloCars v3.2 Con Dark Mode - Página de Contacto Iniciada');
+      console.log('🚗 SoloCars v3.3 - Página de Contacto Iniciada (Bug Fixed)');
+      console.log('⚠️ Recuerda configurar el endpoint de Formspree en la línea 44');
     });
   </script>
+
+  <style>
+    /* Estilos adicionales para la página de contacto */
+    .contacto-pagina {
+      min-height: calc(100vh - 400px);
+      padding-top: 80px;
+    }
+
+    .info-card {
+      padding: 30px 20px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+
+    .info-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    body.dark-mode .info-card {
+      background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+    }
+
+    .info-icon {
+      font-size: 2.5rem;
+      color: #0d6efd;
+      margin-bottom: 15px;
+      display: block;
+    }
+
+    .info-card h5 {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #212529;
+    }
+
+    body.dark-mode .info-card h5 {
+      color: #e0e0e0;
+    }
+
+    .info-card p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    body.dark-mode .info-card p {
+      color: #a0a0a0 !important;
+    }
+
+    /* Animación para el spinner */
+    @keyframes spinner-border {
+      to { transform: rotate(360deg); }
+    }
+
+    .spinner-border {
+      display: inline-block;
+      width: 1rem;
+      height: 1rem;
+      vertical-align: text-bottom;
+      border: 0.15em solid currentColor;
+      border-right-color: transparent;
+      border-radius: 50%;
+      animation: spinner-border 0.75s linear infinite;
+    }
+
+    .spinner-border-sm {
+      width: 0.875rem;
+      height: 0.875rem;
+      border-width: 0.15em;
+    }
+  </style>
 
 </body>
 </html>
