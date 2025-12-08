@@ -1494,14 +1494,37 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ==================== ANUNCIOS ROTATIVOS ====================
 
+
+// Rotar cada 4 segundos
+setInterval(rotarAnuncios, 4000);
+
+// Mostrar primer anuncio al inicio
+document.addEventListener("DOMContentLoaded", rotarAnuncios);
+
+
 const anuncios = [
-  "🔥 AutoMundo - Descuentos hasta 30% esta semana",
-  "🔧 RepuestosCL - Envíos gratis sobre $50.000",
-  "💥 MotorMax - Ofertas especiales en baterías y frenos",
-  "🚗 AutoPlus - Nuevos modelos 2025 en promoción",
-  "🏁 VehículosPro - Los mejores precios del mercado",
-  "🛠️ AutoParts Store - Repuestos garantizados"
-  
+  "🚗✨ Comparador Inteligente de Precios — Encuentra las mejores ofertas al instante ✨🚗",
+  "🔥 AutoMundo — Descuentos de hasta 30% esta semana",
+  "🔧 RepuestosCL — Envíos gratis en compras sobre $50.000",
+  "💥 MotorMax — Ofertas especiales en baterías y frenos",
+  "🚗 AutoPlus — Modelos 2025 en promoción",
+  "🏁 VehículosPro — Los mejores precios del mercado",
+  "🛠️ AutoParts Store — Repuestos garantizados y confiables",
+
+  // 🔥 Nuevos anuncios profesionales
+  "📦 Tiendas Verificadas — Compra con seguridad garantizada",
+  "🤑 Precios en Tiempo Real — Ahorra comparando al instante",
+  "⌛ Actualización automática cada 24 horas — Siempre precios nuevos",
+  "⭐ SoloCars — Más de 150 productos disponibles ahora",
+  "💸 ¡Aprovecha! Grandes descuentos en repuestos populares",
+  "🏎️ Autos 2024 y 2025 con precios rebajados esta semana",
+  "🛠️ Servicio Técnico — Encuentra repuestos originales y alternativos",
+  "🌙 Nuevo Modo Oscuro — Navega cómodo día y noche",
+  "📊 Comparación Avanzada — Ordena por ahorro, precio y tienda",
+  "🔍 Búsqueda Inteligente — Resultados más rápidos y precisos",
+  "📱 Compatible con celulares — Navegación rápida desde tu móvil",
+  "💥 Ofertas Flash — Productos con descuentos por tiempo limitado",
+  "🔧 Repuestos Premium — Calidad garantizada en todas las tiendas"
 ];
 
 let anuncioIndex = 0;
@@ -1518,12 +1541,157 @@ function rotarAnuncios() {
     anuncioIndex = (anuncioIndex + 1) % anuncios.length;
   }, 400);
 }
+// Rotar cada 4 segundos
 
-// Rotar cada 4 segundos
-setInterval(rotarAnuncios, 4000);
+setInterval(rotarAnuncios, 4000);
 
-// Mostrar primer anuncio al inicio
-document.addEventListener("DOMContentLoaded", rotarAnuncios);
+// Mostrar primer anuncio al inicio
+
+document.addEventListener("DOMContentLoaded", rotarAnuncios);
 
 
 
+// ============================================
+// CARRUSEL SOLOCARS - JavaScript
+// ============================================
+
+let slideActual = 0;
+let intervaloCarrusel;
+
+function mostrarSlide(n) {
+  const slides = document.querySelectorAll('.carousel-slide-solo');
+  const indicators = document.querySelectorAll('.indicator-dot');
+  
+  if (!slides.length) return;
+  
+  if (n >= slides.length) slideActual = 0;
+  if (n < 0) slideActual = slides.length - 1;
+  
+  slides.forEach(slide => slide.classList.remove('active'));
+  indicators.forEach(indicator => indicator.classList.remove('active'));
+  
+  slides[slideActual].classList.add('active');
+  indicators[slideActual].classList.add('active');
+}
+
+function cambiarSlide(direccion) {
+  slideActual += direccion;
+  mostrarSlide(slideActual);
+  reiniciarIntervalo();
+}
+
+function irASlide(index) {
+  slideActual = index;
+  mostrarSlide(slideActual);
+  reiniciarIntervalo();
+}
+
+function autoSlide() {
+  slideActual++;
+  mostrarSlide(slideActual);
+}
+
+function reiniciarIntervalo() {
+  if (intervaloCarrusel) clearInterval(intervaloCarrusel);
+  intervaloCarrusel = setInterval(autoSlide, 6000);
+}
+
+// Iniciar carrusel automáticamente
+document.addEventListener('DOMContentLoaded', function() {
+  mostrarSlide(slideActual);
+  intervaloCarrusel = setInterval(autoSlide, 6000);
+  
+  // Pausar en hover
+  const carousel = document.querySelector('.solocars-carousel-section');
+  if (carousel) {
+    carousel.addEventListener('mouseenter', function() {
+      clearInterval(intervaloCarrusel);
+    });
+    
+    carousel.addEventListener('mouseleave', function() {
+      intervaloCarrusel = setInterval(autoSlide, 6000);
+    });
+  }
+});
+
+// Soporte para teclado (flechas)
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowLeft') {
+    cambiarSlide(-1);
+  } else if (e.key === 'ArrowRight') {
+    cambiarSlide(1);
+  }
+});
+
+// Soporte para gestos táctiles (móviles)
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.querySelector('.solocars-carousel-section');
+  
+  if (carousel) {
+    carousel.addEventListener('touchstart', function(e) {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    carousel.addEventListener('touchend', function(e) {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    });
+  }
+});
+
+function handleSwipe() {
+  if (touchEndX < touchStartX - 50) {
+    cambiarSlide(1); // Swipe izquierda
+  }
+  if (touchEndX > touchStartX + 50) {
+    cambiarSlide(-1); // Swipe derecha
+  }
+}
+
+// ============================================
+// ATAJO SECRETO PARA ABRIR PANEL ADMIN
+// ============================================
+document.addEventListener('keydown', function(event) {
+  // Detectar Ctrl + Shift + A
+  if (event.ctrlKey && event.shiftKey && event.key === 'A') {
+    event.preventDefault();
+    
+    // Redirigir al login del panel admin
+    window.location.href = 'login.html';
+    
+    // Opcional: Mostrar mensaje temporal
+    console.log('🔐 Accediendo al panel administrativo...');
+  }
+});
+
+// También crear comando alternativo con triple clic en el logo
+document.addEventListener('DOMContentLoaded', function() {
+  const logo = document.querySelector('.navbar-brand');
+  let clickCount = 0;
+  let clickTimer = null;
+  
+  if (logo) {
+    logo.addEventListener('click', function(e) {
+      clickCount++;
+      
+      if (clickCount === 1) {
+        clickTimer = setTimeout(function() {
+          clickCount = 0;
+        }, 800); // 800ms para hacer triple clic
+      }
+      
+      if (clickCount === 3) {
+        clearTimeout(clickTimer);
+        clickCount = 0;
+        
+        // Redirigir al admin
+        window.location.href = 'login.html';
+        
+        console.log('🔐 Acceso admin activado');
+      }
+    });
+  }
+});

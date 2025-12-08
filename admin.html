@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrativo - Gestión de Productos</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- CSS Admin -->
+    <link rel="stylesheet" href="admin.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/3202/3202926.png">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-car-side"></i> <strong>Comparador Precios</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="fas fa-home"></i> Inicio
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="admin.html">
+                            <i class="fas fa-tools"></i> Admin
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contacto.html">
+                            <i class="fas fa-envelope"></i> Contacto
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light" id="btn-dark-mode">
+                            <i class="fas fa-moon"></i> Dark
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Principal -->
+    <header class="main-header">
+        <div class="container">
+            <h1><i class="fas fa-tools"></i> Panel Administrativo</h1>
+            <p class="lead">Gestión de Autos y Repuestos</p>
+            <p class="subtitle">Carga y administra todos los productos del sistema</p>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="container my-5">
+        <!-- Estadísticas -->
+        <div class="row mb-4">
+            <div class="col-md-4 mb-3">
+                <div class="feature-box text-center stats-card">
+                    <i class="fas fa-car feature-icon"></i>
+                    <h3 id="total-autos">0</h3>
+                    <p>Total Autos</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="feature-box text-center stats-card">
+                    <i class="fas fa-cogs feature-icon"></i>
+                    <h3 id="total-repuestos">0</h3>
+                    <p>Total Repuestos</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="feature-box text-center stats-card">
+                    <i class="fas fa-boxes feature-icon"></i>
+                    <h3 id="total-productos">0</h3>
+                    <p>Total Productos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sección Agregar/Editar Producto -->
+        <div class="search-box mb-5">
+            <h3 id="form-titulo"><i class="fas fa-plus-circle"></i> Agregar Nuevo Producto</h3>
+            
+            <form id="form-producto">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-tag"></i> Nombre del Producto *</label>
+                        <input type="text" class="form-control" id="producto-nombre" placeholder="Ej: Toyota Corolla 2024" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"><i class="fas fa-list"></i> Categoría *</label>
+                        <select class="form-select" id="producto-categoria" required>
+                            <option value="">Seleccionar categoría</option>
+                            <option value="autos">Autos</option>
+                            <option value="repuestos">Repuestos</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Precios por Tienda -->
+                <div class="precios-container mb-4">
+                    <h5><i class="fas fa-store"></i> Precios por Tienda</h5>
+                    <div id="precios-inputs">
+                        <!-- Se generarán dinámicamente -->
+                    </div>
+                    <button type="button" class="btn btn-outline-primary btn-sm mt-2" id="btn-agregar-precio">
+                        <i class="fas fa-plus"></i> Agregar Tienda
+                    </button>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> <span id="btn-texto">Guardar Producto</span>
+                    </button>
+                    <button type="button" class="btn btn-secondary" id="btn-cancelar">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Filtros y Búsqueda -->
+        <div class="filtros-avanzados mb-4">
+            <h4><i class="fas fa-filter"></i> Filtros</h4>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <input type="text" class="form-control" id="buscar-admin" placeholder="Buscar producto...">
+                </div>
+                <div class="col-md-3 mb-3">
+                    <select class="form-select" id="filtro-categoria">
+                        <option value="todos">Todas las Categorías</option>
+                        <option value="autos">Autos</option>
+                        <option value="repuestos">Repuestos</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <select class="form-select" id="ordenar-admin">
+                        <option value="id">Por ID</option>
+                        <option value="nombre">Por Nombre</option>
+                        <option value="categoria">Por Categoría</option>
+                    </select>
+                </div>
+                <div class="col-md-2 mb-3">
+                    <button class="btn btn-outline-secondary w-100" id="btn-limpiar-filtros">
+                        <i class="fas fa-eraser"></i> Limpiar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de Productos -->
+        <div class="admin-productos-lista">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h3><i class="fas fa-list"></i> Lista de Productos</h3>
+                <button class="btn btn-success" id="btn-exportar">
+                    <i class="fas fa-download"></i> Exportar JSON
+                </button>
+            </div>
+
+            <!-- Tabla de Productos -->
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Categoría</th>
+                            <th>Tiendas</th>
+                            <th>Precio Min</th>
+                            <th>Precio Max</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla-admin-productos">
+                        <tr>
+                            <td colspan="7" class="text-center text-muted">Cargando productos...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Paginación -->
+            <nav class="mt-4">
+                <ul class="pagination justify-content-center" id="paginacion-admin">
+                    <!-- Se genera dinámicamente -->
+                </ul>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <h5>Comparador Precios</h5>
+                    <p class="text-muted">Panel de administración para gestión de productos.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-muted">Inicio</a></li>
+                        <li><a href="admin.html" class="text-muted">Admin</a></li>
+                        <li><a href="contacto.html" class="text-muted">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5>Información</h5>
+                    <p class="text-muted">Sistema de gestión v1.0</p>
+                    <p class="text-muted">© 2024 Todos los derechos reservados</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Script Principal (para productos base) -->
+    <script src="script.js"></script>
+    
+    <!-- Script Admin -->
+    <script src="admin.js"></script>
+</body>
+</html>

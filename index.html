@@ -47,6 +47,138 @@
     <p class="subtitle">Encuentra las mejores ofertas en múltiples tiendas al instante</p>
   </header>
 
+  <!-- CARRUSEL SOLOCARS MEJORADO -->
+<section class="solocars-carousel-section">
+  <div class="container">
+    <div class="solocars-carousel">
+      
+      <!-- Slide 1 - Compara Precios de Repuestos -->
+      <div class="carousel-slide-solo active">
+        <div class="carousel-content-solo">
+          <div class="carousel-text-solo">
+            <div class="badge-carousel">
+              <i class="bi bi-lightning-charge-fill"></i> Novedad
+            </div>
+            <h2>Compara precios de repuestos al instante</h2>
+            <p class="mb-3">Encuentra el mejor precio en pastillas, filtros, baterías y más. SoloCars compara en segundos.</p>
+            <ul class="features-list mb-3">
+              <li><i class="bi bi-check-circle-fill"></i> Búsqueda por modelo de auto</li>
+              <li><i class="bi bi-check-circle-fill"></i> Ahorro promedio del 15-30%</li>
+              <li><i class="bi bi-check-circle-fill"></i> Comparación en 3+ tiendas</li>
+            </ul>
+            <div class="carousel-buttons">
+              <a href="#buscador" class="btn-carousel primary">
+                <i class="bi bi-search"></i> Buscar repuesto
+              </a>
+            </div>
+          </div>
+          <div class="carousel-image-solo">
+            <div class="demo-comparison-card">
+              <div class="demo-header">
+                <i class="bi bi-tools"></i>
+                <div>
+                  <h6>Pastillas de Freno</h6>
+                  <small>Toyota Corolla 2018-2022</small>
+                </div>
+              </div>
+              <div class="demo-prices">
+                <div class="demo-price-row">
+                  <span class="tienda-demo">Sodimac</span>
+                  <span class="precio-demo">$45.990</span>
+                </div>
+                <div class="demo-price-row mejor">
+                  <span class="tienda-demo">AutoPartesChile</span>
+                  <span class="precio-demo">$39.990</span>
+                  <span class="badge-mejor">Mejor</span>
+                </div>
+                <div class="demo-price-row">
+                  <span class="tienda-demo">Hites</span>
+                  <span class="precio-demo">$42.500</span>
+                </div>
+              </div>
+              <div class="demo-savings">
+                <i class="bi bi-piggy-bank-fill"></i> Ahorra $6.000
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 - Ofertas Especiales -->
+      <div class="carousel-slide-solo">
+        <div class="carousel-content-solo">
+          <div class="carousel-text-solo">
+            <div class="badge-carousel" style="background: linear-gradient(135deg, #ef4444, #dc2626);">
+              <i class="bi bi-fire"></i> Ofertas
+            </div>
+            <h2>Descubre las mejores ofertas</h2>
+            <p class="mb-3">Encuentra repuestos y autos en promoción. Ofertas actualizadas todos los días.</p>
+            <ul class="features-list mb-3">
+              <li><i class="bi bi-check-circle-fill"></i> Descuentos hasta 40% OFF</li>
+              <li><i class="bi bi-check-circle-fill"></i> Ofertas exclusivas online</li>
+              <li><i class="bi bi-check-circle-fill"></i> Stock limitado verificado</li>
+            </ul>
+            <div class="carousel-buttons">
+              <a href="#ofertas-container" class="btn-carousel primary">
+                <i class="bi bi-fire"></i> Ver ofertas
+              </a>
+            </div>
+          </div>
+          <div class="carousel-image-solo">
+            <img src="https://images.pexels.com/photos/4489733/pexels-photo-4489733.jpeg" 
+                 alt="Ofertas en repuestos automotrices" 
+                 class="carousel-img-rounded">
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 - Búsqueda Rápida -->
+      <div class="carousel-slide-solo">
+        <div class="carousel-content-solo">
+          <div class="carousel-text-solo">
+            <div class="badge-carousel" style="background: linear-gradient(135deg, #3b82f6, #2563eb);">
+              <i class="bi bi-clock-history"></i> Rápido
+            </div>
+            <h2>Encuentra tu repuesto en 10 segundos</h2>
+            <p class="mb-3">Escribe el modelo de tu auto o el repuesto que necesitas. Simple y rápido.</p>
+            <ul class="features-list mb-3">
+              <li><i class="bi bi-check-circle-fill"></i> Base de datos actualizada</li>
+              <li><i class="bi bi-check-circle-fill"></i> Compatible con todas las marcas</li>
+              <li><i class="bi bi-check-circle-fill"></i> Historial de búsquedas guardado</li>
+            </ul>
+            <div class="carousel-buttons">
+              <a href="#buscador" class="btn-carousel primary">
+                <i class="bi bi-speedometer2"></i> Probar ahora
+              </a>
+            </div>
+          </div>
+          <div class="carousel-image-solo">
+            <img src="https://images.pexels.com/photos/97079/pexels-photo-97079.jpeg" 
+                 alt="Búsqueda rápida de repuestos" 
+                 class="carousel-img-rounded">
+          </div>
+        </div>
+      </div>
+
+      <!-- Flechas mejoradas con círculos -->
+      <button class="carousel-btn-solo prev-solo" onclick="cambiarSlide(-1)" aria-label="Anterior">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <button class="carousel-btn-solo next-solo" onclick="cambiarSlide(1)" aria-label="Siguiente">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+
+      <!-- Indicadores -->
+      <div class="carousel-indicators-solo">
+        <button class="indicator-dot active" onclick="irASlide(0)" aria-label="Ir a slide 1"></button>
+        <button class="indicator-dot" onclick="irASlide(1)" aria-label="Ir a slide 2"></button>
+        <button class="indicator-dot" onclick="irASlide(2)" aria-label="Ir a slide 3"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
   <!-- Sección de Introducción -->
   <section class="intro text-center py-5 bg-light">
     <div class="container">
@@ -246,5 +378,6 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
